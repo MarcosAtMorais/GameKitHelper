@@ -5,9 +5,9 @@ Make sure you’ve created a new leaderboard on iTunes Connect and have your Lea
 
 First of all: Import GameKitHelper.h where you’ll use GameCenter. Example: GameScene.m or GameViewController.h
 
-/* This method goes right where you want to send the highscore to the Game Center Server Example: GameScene.m or GameLayer.m
-Call it where you want to send your score. Example: Game Over.
+/* This method goes right where you want to send the highscore to the Game Center Server Example: GameScene.m or GameLayer.m Call it where you want to send your score. Example: Game Over.
 */
+
 -(void)reportScore{
     GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:kHighScoreLeaderboardID]; //Here goes your Leaderboard ID from Game Center.
     score.value = [GameState sharedInstance].highScore; // Replace this with your current HighScore!
@@ -22,7 +22,9 @@ Call it where you want to send your score. Example: Game Over.
 ————————————————
 
 /* GAMEVIEWCONTROLLER — Just place this at the bottom of your GameViewController or ViewController */
+
 #pragma mark - GAME CENTER
+
 - (void)showAuthenticationViewController {
     GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
     [self presentViewController: gameKitHelper.authenticationViewController
