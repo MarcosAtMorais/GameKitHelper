@@ -8,16 +8,16 @@ First of all: Import GameKitHelper.h where you’ll use GameCenter. Example: Gam
 /* This method goes right where you want to send the highscore to the Game Center Server Example: GameScene.m or GameLayer.m Call it where you want to send your score. Example: Game Over.
 */
 
--(void)reportScore{
-    GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:kHighScoreLeaderboardID]; //Here goes your Leaderboard ID from Game Center.
-    score.value = [GameState sharedInstance].highScore; // Replace this with your current HighScore!
-    
-    [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-    }];
-}
+    -(void)reportScore{
+        GKScore *score = [[GKScore alloc] initWithLeaderboardIdentifier:kHighScoreLeaderboardID]; //Here goes your           Leaderboard ID from Game Center.
+        score.value = [GameState sharedInstance].highScore; // Replace this with your current HighScore!
+        
+        [GKScore reportScores:@[score] withCompletionHandler:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"%@", [error localizedDescription]);
+            }
+        }];
+    }
 
 ————————————————
 
@@ -25,21 +25,21 @@ First of all: Import GameKitHelper.h where you’ll use GameCenter. Example: Gam
 
 #pragma mark - GAME CENTER
 
-- (void)showAuthenticationViewController {
-    GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
-    [self presentViewController: gameKitHelper.authenticationViewController
-                       animated:YES completion:nil];
-}
-
--(void)showGameCenterLeaderBoard{
-    GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
-    [gameKitHelper presentLeaderboardsOnViewController:self];
-    
-}
-
--(void) showNotificationView:(NSNotification *) notification{
-    [_notificationView showAndDismissWithTime:2]; //You need to create an UINotificationView in your viewController.
-}
+    - (void)showAuthenticationViewController {
+        GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
+        [self presentViewController: gameKitHelper.authenticationViewController
+                           animated:YES completion:nil];
+    }
+        
+        -(void)showGameCenterLeaderBoard{
+            GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
+            [gameKitHelper presentLeaderboardsOnViewController:self];
+            
+        }
+        
+        -(void) showNotificationView:(NSNotification *) notification{
+            [_notificationView showAndDismissWithTime:2]; //You need to create an UINotificationView in your viewController.
+        }
 
 ————————————————
 
