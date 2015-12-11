@@ -36,10 +36,6 @@ First of all: Import GameKitHelper.h where you’ll use GameCenter. Example: Gam
         [gameKitHelper presentLeaderboardsOnViewController:self];
             
     }
-        
-    -(void) showNotificationView:(NSNotification *) notification{
-        [_notificationView showAndDismissWithTime:2]; //You need to create an UINotificationView in your viewController.
-    }
 
 ————————————————
 
